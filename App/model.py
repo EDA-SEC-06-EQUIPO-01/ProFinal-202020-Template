@@ -44,8 +44,14 @@ de creacion y consulta sobre las estructuras de datos.
 # -----------------------------------------------------
 
 
-def init():
-    return 1
+def put_data(analyzer, info):
+
+    analyzer = dict()
+    analyzer["Parte_A"] = [1, 1, [], []]
+    # analyzer["Parte_B"] = lst
+    # analyzer["Parte_C"] = graph
+
+    return analyzer
 
 
 # Funciones para agregar informacion al grafo

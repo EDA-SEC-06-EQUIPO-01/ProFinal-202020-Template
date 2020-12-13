@@ -55,7 +55,7 @@ Menu principal
 
 
 def show_menu():
-    menu_op = ["Salir", "Parte A", "Parte B", "Parte C"]
+    menu_op = ["Salir", "Prueba", "Cargar los datos"]
 
     for c, op in enumerate(menu_op):
         print(f"{c}) {op}")

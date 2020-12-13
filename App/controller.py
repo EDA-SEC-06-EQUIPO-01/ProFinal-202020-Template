@@ -31,7 +31,7 @@ import csv
 file = cf.data_dir + "taxi-trips-wrvz-psew-subset-small.csv"
 
 analyzer = dict()
-
+loaded = False
 """
 El controlador se encarga de mediar entre la vista y el modelo.
 Existen algunas operaciones en las que se necesita invocar
@@ -56,21 +56,30 @@ def faa():
     print("j")
 
 
-def load(file):
+def load_file():
     global analyzer
     with open(file, encoding="utf-8") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            analyzer["info"] = analyzer.get("info", []) + [row]
+            model.put_data(analyzer, row)
 
-    print()
+    print(analyzer)
+
+
+def load(file):
+    global loaded
+    if not loaded:
+        load_file()
+        loaded = True
+
+
+def prueba():
+    print("Esto es una prueba")
 
 
 def get_solver():
-    return (init, load, faa, foo)
+    return (prueba, load)
 
-
-load(file)
 
 # ___________________________________________________
 #  Inicializacion del catalogo
